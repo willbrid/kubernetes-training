@@ -1,8 +1,8 @@
 One master node et 2 workers nodes
 
-- time k3d cluster create hue --servers 1
-- time k3d node create hue-worker1 -c hue
-- time k3d node create hue-worker2 -c hue
+- time k3d cluster create training --servers 1
+- time k3d node create training-worker1 -c training
+- time k3d node create training-worker2 -c training
 
 
 For using a local image you should use a local registry (ubuntu 18.04)
@@ -22,8 +22,8 @@ mirrors:
 
 - create a cluster with one node
 time k3d cluster create training --servers 1 --volume $HOME/.k3d/registries.yaml:/etc/rancher/k3s/registries.yaml
-- time k3d node create hue-worker1 -c training
-- time k3d node create hue-worker2 -c training
+- time k3d node create training-worker1 -c training
+- time k3d node create training-worker2 -c training
 
 - Don't forget to put an entrance willbrid.registry:5000 in your /etc/hosts file
 
